@@ -24,9 +24,11 @@ intellij {
     plugins = ['java']
 }
 patchPluginXml {
+    sinceBuild = '191'
+    untilBuild = '231.*'
     changeNotes = """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+      This plugin is in the test use stage.<br>
+      """
 }
 test {
     useJUnitPlatform()
