@@ -1,0 +1,41 @@
+<idea-plugin require-restart="true">
+    <id>com.xlh.plugin.fast-mvc-frame</id>
+    <name>Fast MVC Generate</name>
+    <vendor email="2834237037@qq.com" url="http://www.xingluheng.top">邢垆恒</vendor>
+
+    <description><![CDATA[
+    Based on Mybatis-Plus, you can quickly generate MVC architectures<br>
+    Generate Create Table SQL Base Entity<br>
+
+    Usage:<br>
+    <ul>
+        <li>1.选择需要生成的代码路径</li>
+        <li>2.输入MySQL连接信息,选择数据库</li>
+        <li>3.点击OK,生成代码</li>
+    </ul>
+    <ul>
+        <li>1.进入Entity,右键Generate</li>
+        <li>2.ToSQL</li>
+    </ul>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <projectService serviceImplementation="com.xlh.plugin.data.DataSetting"/>
+    </extensions>
+
+    <actions>
+        <action id="CodeGenerateAction" class="com.xlh.plugin.action.GenerateAction"
+                text="MVCCodeGenerate" description="Code Generate MVC" icon="/icons/logo.svg">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+        <action class="com.xlh.plugin.action.ConvertBeanToSQLAction" text="ToSQL"
+                description="Convert This Bean To Creat Table SQL" icon="/icons/mysql.svg">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
