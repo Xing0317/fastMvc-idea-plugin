@@ -1,4 +1,4 @@
-<idea-plugin require-restart="true">
+<idea-plugin>
     <id>com.xlh.plugin.fast-mvc-frame</id>
     <name>Fast MVC Generate</name>
     <vendor email="2834237037@qq.com" url="http://www.xingluheng.top">邢垆恒</vendor>
@@ -22,6 +22,8 @@
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->

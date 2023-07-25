@@ -48,6 +48,7 @@ public class DBConfigUI implements Configurable {
     private JScrollPane tablePanel;
     private JBTable table;
     private JTextField author;
+    private JButton save;
 
     private Project project;
     private FastMVCConfigVO configVO;
@@ -66,6 +67,9 @@ public class DBConfigUI implements Configurable {
         showTables.addActionListener(e -> {
             showDataBaseListener(project);
         });
+        save.addActionListener(e->{
+            savaConfig(project);
+        });
         this.table.getEmptyText().setText("Please Click '查询表名' And Select Table");
         // 给表添加事件
         this.table.addMouseListener(new MouseAdapter() {
@@ -83,6 +87,22 @@ public class DBConfigUI implements Configurable {
                 }
             }
         });
+    }
+
+    private void savaConfig(Project project) {
+        // 获取配置
+        configVO.setDaoPath(daoPath.getText());
+        configVO.setXmlPath(xmlPath.getText());
+        configVO.setPojoPath(pojoPath.getText());
+        configVO.setServicePath(servicePath.getText());
+        configVO.setControllerPath(controllerPath.getText());
+        configVO.setServerAddress(serverAddress.getText());
+        configVO.setUsername(username.getText());
+        configVO.setPassword(password.getText());
+        configVO.setTablePrefix(tablePrefix.getText());
+        configVO.setDatabase(database.getText());
+        configVO.setAuthor(author.getText());
+        Messages.showInfoMessage(project, "保存配置成功", "Info");
     }
 
     private void showDataBaseListener(Project project) {
@@ -166,20 +186,7 @@ public class DBConfigUI implements Configurable {
 
     @Override
     public void apply() throws ConfigurationException {
-        // 获取配置
-        configVO.setDaoPath(daoPath.getText());
-        configVO.setXmlPath(xmlPath.getText());
-        configVO.setPojoPath(pojoPath.getText());
-        configVO.setServicePath(servicePath.getText());
-        configVO.setControllerPath(controllerPath.getText());
-        configVO.setServerAddress(serverAddress.getText());
-        configVO.setUsername(username.getText());
-        configVO.setPassword(password.getText());
-        configVO.setTablePrefix(tablePrefix.getText());
-        configVO.setDatabase(database.getText());
-        configVO.setAuthor(author.getText());
         // 生成代码
-
         CodeGenContextVO codeGenContext = new CodeGenContextVO();
         codeGenContext.setPojoDir(pojoPath.getText());
         codeGenContext.setDaoDir(daoPath.getText());

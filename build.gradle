@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.xlh.plugin'
-version '1.0-SNAPSHOT'
+version '1.0.1'
 
 repositories {
     mavenCentral()
@@ -28,6 +28,9 @@ patchPluginXml {
     untilBuild = '231.*'
     changeNotes = """
       This plugin is in the test use stage.<br>
+        <ui>
+            <li>修复ToSQL,增加保存配置按钮</li>
+        </ui>
       """
 }
 test {
