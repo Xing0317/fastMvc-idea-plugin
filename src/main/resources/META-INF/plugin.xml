@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.xlh.plugin.fast-mvc-frame</id>
     <name>Fast MVC Generate</name>
-    <vendor email="2834237037@qq.com" url="http://www.xingluheng.top">邢垆恒</vendor>
+    <vendor email="2834237037@qq.com" url="http://43.143.159.51/">邢垆恒</vendor>
 
     <description><![CDATA[
     Based on Mybatis-Plus, you can quickly generate MVC architectures<br>
@@ -9,13 +9,13 @@
 
     Usage:<br>
     <ul>
-        <li>1.选择需要生成的代码路径</li>
-        <li>2.输入MySQL连接信息,选择数据库</li>
-        <li>3.点击OK,生成代码</li>
+        <li>1.Select the path of the code that needs to be generated</li>
+        <li>2.Enter the MySQL connection information and select the database</li>
+        <li>3.Click OK to generate the code</li>
     </ul>
     <ul>
-        <li>1.进入Entity,右键Generate</li>
-        <li>2.ToSQL</li>
+        <li>1.Go to Entity and right-click Generate and Choose ToSQL</li>
+        <li>2.Click the copy button to copy the SQL statement</li>
     </ul>
     ]]></description>
 
@@ -28,6 +28,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
         <projectService serviceImplementation="com.xlh.plugin.data.DataSetting"/>
+        <notificationGroup id="Custom Notification Group"
+                           displayType="BALLOON"/>
     </extensions>
 
     <actions>

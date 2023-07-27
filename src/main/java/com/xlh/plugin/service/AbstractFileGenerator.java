@@ -64,7 +64,7 @@ public abstract class AbstractFileGenerator extends GeneratorConfig implements F
             }
         } catch (IOException | TemplateException e) {
             LOG.error(e);
-            Notification.balloonNotify(e.getMessage(), MessageType.ERROR);
+            Notification.balloonNotify(project,e.getMessage(), MessageType.ERROR);
         }
     }
 

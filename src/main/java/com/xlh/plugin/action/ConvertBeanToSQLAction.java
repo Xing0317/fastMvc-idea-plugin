@@ -37,10 +37,10 @@ public class ConvertBeanToSQLAction extends AnAction {
         PsiJavaFile javaFile = (PsiJavaFile) psiFile;
         PsiClass[] classes = javaFile.getClasses();
         if (classes.length!=1) {
-            Notification.balloonNotify("当前文件不支持生成SQL", MessageType.ERROR);
+            Notification.balloonNotify(project,"当前文件不支持生成SQL", MessageType.ERROR);
         }
         String sql = SqlUtils.convertToMySQL(classes[0], getTableName(classes[0]));
-        Notification.balloonNotify("SQL生成成功", MessageType.INFO);
+        Notification.balloonNotify(project,"SQL生成成功", MessageType.INFO);
         SQLResultDialog.showDialog(project,sql);
     }
 

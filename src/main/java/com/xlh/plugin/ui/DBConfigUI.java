@@ -9,6 +9,7 @@ import com.intellij.openapi.ui.TextBrowseFolderListener;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.PsiPackage;
 import com.intellij.ui.table.JBTable;
 import com.xlh.plugin.data.DataSetting;
 import com.xlh.plugin.data.po.Table;
@@ -23,6 +24,8 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.*;
@@ -231,9 +234,9 @@ public class DBConfigUI implements Configurable {
         FileChooserDescriptor cliChooserDescriptor = new FileChooserDescriptor
                 (false, true, false, false, false, false);
         VirtualFile virtualFile = LocalFileSystem.getInstance().findFileByPath(Objects.requireNonNull(project.getBasePath()));
+        cliChooserDescriptor.setShowFileSystemRoots(true);
         cliChooserDescriptor.setRoots(virtualFile);
-        TextBrowseFolderListener folderListener = new TextBrowseFolderListener(cliChooserDescriptor);
-        return folderListener;
+        return new TextBrowseFolderListener(cliChooserDescriptor);
     }
 
 
