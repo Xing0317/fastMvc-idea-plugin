@@ -11,6 +11,7 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * 持久化存储类
+ *
  * @author xingluheng
  * @date 2023/07/19 20:43
  **/
@@ -20,7 +21,7 @@ public class DataSetting implements PersistentStateComponent<DataState> {
     private DataState state = new DataState();
 
     public static DataSetting getInstance(Project project) {
-        return ServiceManager.getService(project, DataSetting.class);
+        return project.getService(DataSetting.class);
     }
 
     @Nullable
@@ -34,7 +35,7 @@ public class DataSetting implements PersistentStateComponent<DataState> {
         this.state = state;
     }
 
-    public FastMVCConfigVO getFastMVCConfigVO(){
+    public FastMVCConfigVO getFastMVCConfigVO() {
         return state.getFastMVCConfigVO();
     }
 }

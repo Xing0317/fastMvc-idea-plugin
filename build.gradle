@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.xlh.plugin'
-version '1.0.1'
+version '1.0.3'
 
 repositories {
     mavenCentral()
@@ -30,6 +30,7 @@ patchPluginXml {
       This plugin is in the test use stage.<br>
         <ui>
             <li>修复ToSQL,增加保存配置按钮</li>
+            <li>去除废弃通知API</li>
         </ui>
       """
 }

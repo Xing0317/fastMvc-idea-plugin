@@ -4,7 +4,7 @@
 
 根据个人编码习惯,生成的基本文件骨架，由于使用了MyBatis-Plus,简单的单表完全由其生成，因此在这里并没有像其他一键生成代码一样,生成基本的crud代码和sql.xml，完全由使用者根据业务场景定义方法名称。
 
-<img src="https://edu-guli-0418.oss-cn-beijing.aliyuncs.com/uPic/image-20230724143227904.png" alt="image-20230724143227904" style="zoom:50%;" />
+![image-20230828110453598](https://edu-guli-0418.oss-cn-beijing.aliyuncs.com/uPic/image-20230828110453598.png)
 
 ![image-20230724142455273](https://edu-guli-0418.oss-cn-beijing.aliyuncs.com/uPic/image-20230724142455273.png)
 
