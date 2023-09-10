@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.xlh.plugin'
-version '1.0.3'
+version '1.0.4'
 
 repositories {
     mavenCentral()
@@ -25,10 +25,11 @@ intellij {
 }
 patchPluginXml {
     sinceBuild = '203'
-    untilBuild = '231.*'
+    untilBuild = '232.*'
     changeNotes = """
       This plugin is in the test use stage.<br>
         <ui>
+            <li>兼容232版本IDEA</li>
             <li>修复ToSQL,增加保存配置按钮</li>
             <li>去除废弃通知API</li>
         </ui>
