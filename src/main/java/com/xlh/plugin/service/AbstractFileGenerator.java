@@ -44,28 +44,26 @@ public abstract class AbstractFileGenerator extends GeneratorConfig implements F
         if (StringUtil.isEmpty(packageName)){
             return;
         }
-        VirtualFile virtualFile = null;
-        try {
+
+        ApplicationManager.getApplication().runWriteAction(() -> {
+            VirtualFile virtualFile = null;
             virtualFile = createPackageDir(packageName);
             if (virtualFile.findChild(name) == null) {
-                VirtualFile childData = virtualFile.createChildData(project, name);
-                StringWriter stringWriter = new StringWriter();
-                Template template = super.getTemplate(ftl);
-                template.process(model, stringWriter);
-                ApplicationManager.getApplication().runWriteAction(() -> {
-                    // 在此处执行您的写操作代码
-                    try {
-                        childData.setBinaryContent(stringWriter.toString().getBytes(StandardCharsets.UTF_8));
-                    } catch (IOException e) {
-                        LOG.error(e);
-                    }
-                });
-
+                // 在此处执行您的写操作代码
+                try {
+                    VirtualFile childData = virtualFile.createChildData(project, name);
+                    StringWriter stringWriter = new StringWriter();
+                    Template template = super.getTemplate(ftl);
+                    template.process(model, stringWriter);
+                    childData.setBinaryContent(stringWriter.toString().getBytes(StandardCharsets.UTF_8));
+                } catch (IOException | TemplateException e) {
+                    LOG.error(e);
+                    Notification.balloonNotify(project,e.getMessage(), MessageType.ERROR);
+                }
             }
-        } catch (IOException | TemplateException e) {
-            LOG.error(e);
-            Notification.balloonNotify(project,e.getMessage(), MessageType.ERROR);
-        }
+            });
+
+
     }
 
     private static VirtualFile createPackageDir(String packageName) {
