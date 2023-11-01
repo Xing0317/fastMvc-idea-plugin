@@ -62,6 +62,12 @@ public class ConvertBeanToSQLAction extends AnAction {
         FileType fileType = virtualFile.getFileType();
         e.getPresentation().setEnabledAndVisible("JAVA".equals(fileType.getName()));
     }
+
+    /**
+     * 获取注释的表名称
+     * @param psiClass
+     * @return
+     */
     public String getTableName(PsiClass psiClass){
         String tableName = psiClass.getName().toLowerCase();
         for (PsiAnnotation annotation : psiClass.getAnnotations()) {
